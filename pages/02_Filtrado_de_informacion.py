@@ -75,5 +75,22 @@ def filtrado_de_info(controlador, dict_archivos_extra):
                     mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                 )
 
+            csv_data = df_filtrado.to_csv(index=False).encode("utf-8")
+            st.download_button(
+                label="Descargar archivo CSV",
+                data=csv_data,
+                file_name="datos.csv",
+                mime="text/csv"
+            )
+
+            # Botón para descargar en formato JSON
+            json_data = df_filtrado.to_json(orient="records", indent=4).encode("utf-8")
+            st.download_button(
+                label="Descargar archivo JSON",
+                data=json_data,
+                file_name="datos.json",
+                mime="application/json"
+            )
+
 
 filtrado_de_info(st.session_state.controlador, st.session_state.dict_archivos_extra)

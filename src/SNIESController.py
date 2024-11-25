@@ -106,6 +106,3 @@ class SNIESController:
             df.to_excel(tmp.name, index=False, sheet_name="Datos", engine="openpyxl")
             tmp.seek(0)  # Volver al inicio del archivo
             return tmp.name
-
-
-

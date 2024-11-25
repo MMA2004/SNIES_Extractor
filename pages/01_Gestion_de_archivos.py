@@ -27,11 +27,13 @@ def gestion_archivos(dict_archivos_extra):
             # Si es así, agregarlo a la lista default_files
             default_files.append(ruta_extra)
 
+    default_files.sort()
+
     # Mostrar los archivos disponibles en un selectbox o multiselect
     st.title("Archivos Disponibles en 'inputs'")
     st.info(
         "Este es un listado de los archivos de Excel disponibles en la carpeta 'inputs'.")
-    st.selectbox("Archvios disponibles", options=default_files)
+    st.selectbox("Archivos disponibles", options=default_files)
 
 
     st.subheader("Carga de Archivos")
